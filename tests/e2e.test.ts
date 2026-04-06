@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, chromium } from '@playwright/test';
 
 const browsers = ['chromium', 'firefox', 'webkit'];
 
@@ -14,3 +14,5 @@ test('SauceDemo Login Test', async ({ page }) => {
   // Verify login success (URL check)
   await expect(page).toHaveURL(/inventory/);
 });
+
+// const browser = await chromium.launch();
