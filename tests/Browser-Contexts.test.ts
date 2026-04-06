@@ -1,7 +1,7 @@
 import { chromium } from '@playwright/test';
+import { test } from '@playwright/test';
 
-async function multipleUsersLogin() {
-
+test('Multiple Users Login - Browser Contexts', async () => {
     const browser = await chromium.launch({ headless: false });
 
     // Admin User
@@ -22,4 +22,9 @@ async function multipleUsersLogin() {
     await customerPage.fill('#password', 'secret_sauce');
     await customerPage.click('#login-button');
 
-}
+    // Close browser
+    await browser.close();
+});
+
+
+//running : npx playwright test tests/Browser-Contexts.test.ts --reporter=list
