@@ -11,11 +11,14 @@ test('Handle new tab with screenshots and video recording', async ({ browser }) 
   // Take screenshot of the main page
   await page.screenshot({ path: 'screenshots/main-page.png', fullPage: true });
 
-  // Click the link that opens a new tab and wait for the new page
-  const [newPage] = await Promise.all([
-    context.waitForEvent('page'),
-    page.click('text=Click Here')
-  ]);
+  // Set up listener for new page before clicking
+  const newPagePromise = context.waitForEvent('page');
+
+  // Click the link that opens a new tab
+  await page.click('text=Click Here');
+
+  // Wait for the new page
+  const newPage = await newPagePromise;
 
   // Wait for the new page to load
   await newPage.waitForLoadState();
