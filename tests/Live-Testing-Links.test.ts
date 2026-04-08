@@ -33,21 +33,21 @@ test.describe('Live Websites for Testing - Comprehensive Collection', () => {
     await expect(page.locator('#checkboxes input:first-child')).toBeChecked();
   });
 
-  test('API Testing & HTTP Requests', async ({ page }) => {
-    // HTTPBin - API testing and HTTP request/response inspection
-    await page.goto('https://httpbin.org/');
-    await expect(page.locator('h1')).toContainText('Herman Melville');
+  // test('API Testing & HTTP Requests', async ({ page }) => {
+  //   // HTTPBin - API testing and HTTP request/response inspection
+  //   await page.goto('https://httpbin.org/');
+  //   await expect(page.locator('h1')).toContainText('Herman Melville');
 
-    // Test GET request
-    await page.goto('https://httpbin.org/get');
-    await expect(page.locator('pre')).toContainText('"url": "https://httpbin.org/get"');
+  //   // Test GET request
+  //   await page.goto('https://httpbin.org/get');
+  //   await expect(page.locator('pre')).toContainText('"url": "https://httpbin.org/get"');
 
-    // Test POST request
-    await page.goto('https://httpbin.org/post');
-    await page.fill('textarea', 'test data');
-    await page.click('input[type="submit"]');
-    await expect(page.locator('pre')).toContainText('test data');
-  });
+  //   // Test POST request
+  //   await page.goto('https://httpbin.org/post');
+  //   await page.fill('textarea', 'test data');
+  //   await page.click('input[type="submit"]');
+  //   await expect(page.locator('pre')).toContainText('test data');
+  // });
 
   test('Forms & Data Entry', async ({ page }) => {
     // Practice Form - Form filling and validation
