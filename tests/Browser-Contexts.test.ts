@@ -8,12 +8,12 @@ test('Multiple Users Login - Browser Contexts', async () => {
     const adminContext = await browser.newContext();
     const adminPage = await adminContext.newPage();
 
-    await adminPage.goto('https://www.saucedemo.com/');
-    await adminPage.fill('#user-name', 'standard_user'); 
+    await adminPage.goto('https://www.saucedemo.com/'); 
+    await adminPage.fill('#user-name', 'standard_user');  
     await adminPage.fill('#password', 'secret_sauce');
     await adminPage.click('#login-button');
 
-    // Customer User
+    // Customer User 
     const customerContext = await browser.newContext();
     const customerPage = await customerContext.newPage();
 
